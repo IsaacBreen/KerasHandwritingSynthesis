@@ -21,14 +21,13 @@ from model import utils, model
 
 
 if __name__=="__main__":
-	model_dir = "."
 	data_dir = "original_part/"
 	model_dir = "model/"
 
 	# Import utils.py
 	with tf.device("/cpu:0"):
 	  exec(open(model_dir+"utils.py").read())
-	  DataLoader(data_dir=data_dir).preprocess(data_dir, model_dir+"strokes_training_data.cpkl", model_dir+"transcriptions.cpkl")
+  		DataLoader(data_dir=data_dir).preprocess(data_dir, "strokes_training_data.cpkl", "transcriptions.cpkl")
 
 	dataloader = DataLoader(data_dir=".")
 	[x_batch, transcriptions_batch], y_batch = dataloader.__getitem__(2)
