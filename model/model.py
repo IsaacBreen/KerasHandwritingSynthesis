@@ -98,12 +98,12 @@ def handwriting_synthesis_nn(
     return_model=True,
     output_window_mu=False,
     use_GRU=False):
-  
+
   transcription_input = tf.keras.Input((seq_len, alphabet_size), batch_size=batch_size)
   xyl_input = tf.keras.Input((stroke_len, 3), batch_size=batch_size)
   previous_mu = tf.keras.Input((seq_len,n_windows,1), batch_size=batch_size)
 
-  
+
   rnn_config = dict(
       kernel_regularizer=keras.regularizers.l2(),
       recurrent_regularizer=keras.regularizers.l2()
